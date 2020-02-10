@@ -123,7 +123,7 @@ public class AdvancedCalculatorApplication extends JFrame implements CommandLine
         jButton7.setText("Quadratic");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //jButton7ActionPerformed(evt);
+                quadEq(evt);
             }
         });
 
@@ -443,6 +443,32 @@ public class AdvancedCalculatorApplication extends JFrame implements CommandLine
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    private void display(){
+        JPanel panel = new JPanel(new GridLayout());
+        aField = new JTextField("");
+        bField = new JTextField("");
+        cField = new JTextField("");
+
+        panel.add(new JLabel("Enter a: "));
+        panel.add(aField);
+        panel.add(new JLabel("Enter b: "));
+        panel.add(bField);
+        panel.add(new JLabel("Enter c: "));
+        panel.add(cField);
+
+        int result = JOptionPane.showConfirmDialog(null, panel, "Test",
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if (result == JOptionPane.OK_OPTION){
+            jTextField1.setText(calcService.quadSolver(Double.parseDouble(aField.getText()),
+                    Double.parseDouble(bField.getText()), Double.parseDouble(cField.getText()) ));
+        }
+    }
+
+    private void quadEq(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        display();
+    }
+
     private void eval(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
         if (calcService.validate(jTextField1.getText())){
             jTextField1.setText(calcService.rpn(calcService.preCalc(jTextField1.getText())));
@@ -576,6 +602,10 @@ public class AdvancedCalculatorApplication extends JFrame implements CommandLine
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
+    private JTextField aField;
+    private JTextField bField;
+    private JTextField cField;
+
     // End of variables declaration//GEN-END:variables
 
 
