@@ -440,9 +440,9 @@ public class AdvancedCalculatorApplication extends JFrame implements CommandLine
 
     private void display(){
         JPanel panel = new JPanel(new GridLayout());
-        aField = new JTextField("");
-        bField = new JTextField("");
-        cField = new JTextField("");
+        aField = new JTextField("0");
+        bField = new JTextField("0");
+        cField = new JTextField("0");
 
         panel.add(new JLabel("Enter a: "));
         panel.add(aField);
@@ -451,11 +451,19 @@ public class AdvancedCalculatorApplication extends JFrame implements CommandLine
         panel.add(new JLabel("Enter c: "));
         panel.add(cField);
 
-        int result = JOptionPane.showConfirmDialog(null, panel, "Test",
+        int result = JOptionPane.showConfirmDialog(null, panel, "Quadratic",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION){
-            jTextField1.setText(calcService.quadSolver(Double.parseDouble(aField.getText()),
-                    Double.parseDouble(bField.getText()), Double.parseDouble(cField.getText()) ));
+            try
+            {
+                jTextField1.setText(calcService.quadSolver(Double.parseDouble(aField.getText()),
+                Double.parseDouble(bField.getText()), Double.parseDouble(cField.getText()) ));
+            }
+            catch(Exception e)
+            {
+                jTextField1.setText("ERROR");
+            }
+           
         }
     }
 
