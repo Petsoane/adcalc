@@ -71,10 +71,11 @@ public class Rpn implements RpnService
         return isDecOrNot(tmp) ? String.valueOf(tmp): String.valueOf((int) tmp);
     }
     private double factorial(double val) {
+        if (val == 0)
+            return (1);
         double tmp = (val - 0.5) * Math.log(val + 4.5) - (val + 4.5);
         double name = 1.0 + 76.18009173 / (val + 0) - 86.50532033 / (val + 1) + 24.01409822 / (val + 2) - 1.231739516 / (val + 3)
                 + 0.00120858003 / (val + 4) - 0.00000536382 / (val + 5);
-
 
         tmp = val * (Math.exp(tmp + Math.log(name * Math.sqrt(2 * Math.PI))));
         return isDecOrNot(val) ? tmp : Math.ceil(tmp);
