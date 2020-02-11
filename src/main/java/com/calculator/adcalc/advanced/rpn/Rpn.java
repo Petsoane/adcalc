@@ -14,7 +14,6 @@ public class Rpn implements RpnService
 
         for (String token : rpn.split("\\s+"))
         {
-            System.out.println(token);
             switch (token)
             {
                 case "+":

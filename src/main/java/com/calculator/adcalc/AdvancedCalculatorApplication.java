@@ -22,7 +22,12 @@ import java.awt.event.ActionEvent;
 @SpringBootApplication
 public class AdvancedCalculatorApplication extends JFrame implements CommandLineRunner{
 
-    public static void main(String[] args){
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    public static void main(String[] args) {
         SpringApplication.run(AdvancedCalculatorApplication.class, args);
 
     }

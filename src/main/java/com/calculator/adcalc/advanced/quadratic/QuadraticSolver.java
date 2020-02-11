@@ -40,7 +40,7 @@ public class QuadraticSolver implements QuadService {
         else {
             long real = ((long) ((-b /(2 * a)) * ROUND_UP));
             long imag =((long) ((Math.sqrt(-deter) / (2 * a)) * ROUND_UP));
-            output = "Root1 = " + real + "." + imag;
+            output = "Root1 = " + real + " + " + imag + "i";
         }
         return output;
     }
